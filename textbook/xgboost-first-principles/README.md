@@ -26,30 +26,30 @@
 ## セットアップ（Python 3.11 推奨）
 この README があるディレクトリへ移動して実行:
 
-\`\`\`bash
+```bash
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 python -m pip install -r requirements.txt
 jupyter lab
-\`\`\`
+```
 
 VS Code の Notebook / GitHub Codespaces でも利用できます。データセットは scikit-learn 同梱のものだけを使用します。外部の認証や Kaggle ダウンロードは不要です。
 
 ## 演習の提出・採点
-各 Notebook は \`exercises/student.py\` の TODO を編集する形式です。**解答は \`solutions/reference.py\` に別置き**（見る前に自力で挑戦）。
+各 Notebook は `exercises/student.py` の TODO を編集する形式です。**解答は `solutions/reference.py` に別置き**（見る前に自力で挑戦）。
 
-\`\`\`bash
+```bash
 python tools/grade.py                         # 自分の実装を採点
 python tools/grade.py -k test_best_split      # 特定項目だけ採点
 python tools/grade.py --reference             # 解答例自身の健全性検証
-\`\`\`
+```
 
-\`pytest\` の失敗内容で関数ごとの間違いを確認できます。GitHub Actions は教材が完成済みでなくても赤くならないよう **解答例のテスト** と Notebook 構造検証だけを CI で実施します。自分の達成状況は手元で \`python tools/grade.py\` を実行してください。公開テスト通過は想定ケースの合格であり、実装の唯一性やあらゆる入力での正しさを証明しません。
+`pytest` の失敗内容で関数ごとの間違いを確認できます。GitHub Actions は教材が完成済みでなくても赤くならないよう **解答例のテスト** と Notebook 構造検証だけを CI で実施します。自分の達成状況は手元で `python tools/grade.py` を実行してください。公開テスト通過は想定ケースの合格であり、実装の唯一性やあらゆる入力での正しさを証明しません。
 
 ## カリキュラムの方針
 - まず 1 次元・回帰問題で数式とアルゴリズムを自力実装する。後半で二値分類へ移る。
 - Notebook の図は Matplotlib で自動生成。セルを再実行すると結果を変更できる。
-- \`sklearn\` では「正解を利用した確認」を行うが、最初の実装演習は NumPy のみ。
+- `sklearn` では「正解を利用した確認」を行うが、最初の実装演習は NumPy のみ。
 - XGBoost が最初から全探索しているわけではない：実際の木構築では近似／hist などの実装上の高速化がある。本教材は目的関数と分割原理に焦点を当てる。
 - 分割戦略は手法のコアであって、全てのソフトウェア実装が教材の簡易 1D スタンプと同じ挙動をするとは限らない。
 
